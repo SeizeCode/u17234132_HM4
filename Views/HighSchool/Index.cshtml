@@ -1,0 +1,116 @@
+﻿@model IEnumerable<WebApplication2.Models.HighSDatabse.HighSModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+<body style="background-color:#808080">
+    @foreach (WebApplication2.Models.HighSDatabse.HighSModel h in Model)
+    {
+        @*<h2>@primary.hello() </h2>*@
+        <span style="font-family:'Microsoft YaHei'">@h.WelcomeMessage()</span> <br>
+    }
+
+    <h3><b>List of High School Education Level Applicants</b></h3>@DateTime.Now <span class="btn-danger"> @Html.ActionLink("Log out", "Index", "Administator")</h3></span>
+    <hr />
+    <div class="col-sm-4">
+        @using (Html.BeginForm("Names", "HighSchool", FormMethod.Get))
+        {
+
+            @Html.TextBox("searchname")<input type="submit" value="Search" />
+            <span>Search Name</span>
+
+        }
+
+    </div>
+    <br /><br />
+    <table class="table table-bordered" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size:small">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.mID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mSurnname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mID_Number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mHome_Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parent_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contact_Number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mGrade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mSchoolName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mCareerField)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mSubjects)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr class="table table-hover" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size:medium">
+                <td>
+                    @Html.DisplayFor(modelItem => item.mID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mSurnname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mID_Number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mHome_Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Parent_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Contact_Number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mGrade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mSchoolName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mCareerField)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mSubjects)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.mID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.mID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.mID })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+<a id="Download" class="btn btn-primary">Download List</a>

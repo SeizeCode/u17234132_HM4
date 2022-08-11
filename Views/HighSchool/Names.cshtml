@@ -1,0 +1,115 @@
+﻿@model IEnumerable<WebApplication2.Models.HighSDatabse.HighSModel>
+
+@{
+    ViewBag.Title = "Names";
+}
+
+<body style="background-color:#808080">
+  @foreach(var i in Model)
+            {
+                @i.names();
+            }
+    <h2><b>Names of High School Applicants </b></h2>@DateTime.Now
+    <h4>
+    </h4>
+    <p class="btn btn-default" style="border:1px;border-radius:8px">
+        @Html.ActionLink("Create New Applicant", "Create")
+    </p>
+    <p class="btn btn-default" style="border:1px;border-radius:8px">
+        @Html.ActionLink("Sort By Grade", "Grade")
+    </p><br /><br />
+    <table class="table" style="border-block-color:blue;border:1px">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.mID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mSurnname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mID_Number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mHome_Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parent_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contact_Number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mGrade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mSchoolName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mCareerField)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mSubjects)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mSurnname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mID_Number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mHome_Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Parent_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Contact_Number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mGrade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mSchoolName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mCareerField)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mSubjects)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td style="background-color:darkgrey;border:0.5px;border-radius:8px;padding-right:3px">
+                    <b>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.mID })
+                        @Html.ActionLink("Details", "Details", new { id = item.mID })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.mID })
+                    </b>
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>

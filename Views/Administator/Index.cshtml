@@ -1,0 +1,128 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<div class="navbar navbar-inverse navbar-fixed-top" style="background-color:dimgrey;font-family:Jokerman" >
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @*@Html.ActionLink("Home", "I", "Administation", new { area = "" }, new { @class = "navbar-brand" })*@
+           
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("About this Application", "About", "Administator")</li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+<body style="background-color:cadetblue">
+
+    <h1 class="well">Administration Log in Page</h1><b>@DateTime.Now</b>
+    <br /><br />
+    <div class="col-lg-8">
+
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" style="border:solid;border-color:green">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+
+                <div class="item active">
+                    <a href="~/Primary/Index"><h3>Primary School Learners</h3></a> <p>Grade 1 to 6</p>
+                    <img src="~/986244-primary-school-reopen.jpg" alt="image1" style="width: 100%;height:300px ">
+                    <div class="carousel-caption">
+
+                    </div>
+                </div>
+
+                <div class="item">
+                    <a href="~/Secondary/Index">
+                        <h3>Seconday School Learners</h3>
+                    </a><p>Grade 7 to 9</p><img src="~/group-students-looking-up-1135x540.jpg" alt="image" style="width:100%;height:300px">
+                    <div class="carousel-caption">
+
+                    </div>
+                </div>
+
+                <div class="item">
+                    <a href="~/HighSchool/Index">
+                        <h3>High School Learners</h3>
+                    </a> <p>Grade 10 to 12</p>
+                    <img src="~/HS pic II.png" alt="image" style="width: 100%; height: 300px">
+                    <div class="carousel-caption">
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-4" id="form">
+        @using (Html.BeginForm("Index", "Administator", FormMethod.Get))
+        {
+            <form id="formcontrol">
+
+                <h3>Log in</h3>
+                <label>User Name</label>
+                <input type="email" placeholder="Email or Employee Name  "  class="form-control" />
+                <label>PassWord</label>
+                <input type="password" class="form-control" placeholder="no caps" />
+                @Html.ActionLink("Log in", "Index", "Primary")<br /><br />
+                <input type="submit" class="btn-danger" value="Forgot Password">
+            </form>
+        }
+
+    </div>
+
+</body>
+@section scripts{
+   <script>
+       $('#form').css({ "background-color": "lightblue" });
+
+       $('#form').animate({ "width": "380px", "height": "375" }, 3000, "swing", function () {
+           $('#myCarousel').fadeOut(2000);
+
+           $('#myCarousel').fadeIn(500, function () {
+               $('#myCarousel').animate({ "width": "700", "height": "390" }, 3000, "swing", function () {
+                   $('#form').animate({ "height": "350" }).css({"background-color":"lightgrey"})
+               })
+               
+           })
+       });
+       $('#myCarousel').animate({ "width": "1100px" }, 3500, "swing", function () {
+
+       });
+       
+    </script>
+ } 
+
+

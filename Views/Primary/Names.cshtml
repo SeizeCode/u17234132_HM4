@@ -1,0 +1,108 @@
+﻿@model IEnumerable<WebApplication2.Models.PrimaryModel>
+
+@{
+    ViewBag.Title = "Names";
+    var sname = Request["searchname"];
+    
+}
+
+<body style="background-color:#d0b8b8">
+    @foreach(var i in Model)
+            {
+    <span> @i.names()</span>
+            }
+    <h2><b>Names of Primary School Applicants</b></h2>@DateTime.Now
+    <h4>
+    </h4>
+    <p class="btn btn-default" style="border:1px;border-radius:8px">
+        @Html.ActionLink("Create New Applicant", "Create")
+    </p><br /><br />
+    <table class="table" style="border-block-color:blue;border:1px">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.mID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mSurnname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mID_Number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mHome_Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parent_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contact_Number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mPrimaryID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mPrimaryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mCurrentGrade)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mSurnname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mID_Number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mHome_Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Parent_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Contact_Number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mPrimaryID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mPrimaryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mCurrentGrade)
+
+                </td>
+                <td style="background-color:darkgrey;border:0.5px;border-radius:8px;padding-right:3px">
+                    <b>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.mID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.mID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.mID })
+                    </b>
+                </td>
+
+            </tr>
+
+        }
+
+    </table>
+   
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+    
+</body>

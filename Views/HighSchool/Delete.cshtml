@@ -1,0 +1,122 @@
+﻿@model WebApplication2.Models.HighSDatabse.HighSModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+<body style="background-color: #808080ff; text-align: center">
+    <h2 class="well" style="font-family:Courier New, Courier, monospace">Delete HighSchool Applicant</h2>
+    <b>@DateTime.Now</b>
+    <h3 style="font-family:Courier New, Courier, monospace"><b>Are you sure you want to delete this?</b></h3>
+    <div>
+
+        <hr />
+        <dl class="dl-horizontal" style="font-family: Courier New, Courier, monospace; font-size: large; text-align:left">
+            <dt>
+                @Html.DisplayNameFor(model => model.mID)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.mID)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.mName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.mName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.mSurnname)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.mSurnname)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.mID_Number)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.mID_Number)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.mHome_Address)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.mHome_Address)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Parent_Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Parent_Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Contact_Number)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Contact_Number)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.mGrade)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.mGrade)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.mSchoolName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.mSchoolName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.mCareerField)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.mCareerField)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.mSubjects)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.mSubjects)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-danger" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
